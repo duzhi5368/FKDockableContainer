@@ -1,0 +1,125 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://addons/FKDockableContainer/Scripts/dockable_container.gd" type="Script" id=1]
+[ext_resource path="res://addons/FKDockableContainer/Scripts/layout.gd" type="Script" id=2]
+[ext_resource path="res://addons/FKDockableContainer/Scripts/layout_panel.gd" type="Script" id=3]
+[ext_resource path="res://addons/FKDockableContainer/Scripts/layout_split.gd" type="Script" id=4]
+
+[sub_resource type="Resource" id=1]
+resource_name = "Tabs"
+script = ExtResource( 3 )
+names = PoolStringArray( "Control1" )
+current_tab = 0
+
+[sub_resource type="Resource" id=2]
+resource_name = "Tabs"
+script = ExtResource( 3 )
+names = PoolStringArray( "Control4" )
+current_tab = 0
+
+[sub_resource type="Resource" id=3]
+resource_name = "Split"
+script = ExtResource( 4 )
+direction = 1
+percent = 0.5
+first = SubResource( 1 )
+second = SubResource( 2 )
+
+[sub_resource type="Resource" id=4]
+resource_name = "Tabs"
+script = ExtResource( 3 )
+names = PoolStringArray( "Control3" )
+current_tab = 0
+
+[sub_resource type="Resource" id=9]
+resource_name = "Tabs"
+script = ExtResource( 3 )
+names = PoolStringArray( "Label" )
+current_tab = 0
+
+[sub_resource type="Resource" id=5]
+resource_name = "Tabs"
+script = ExtResource( 3 )
+names = PoolStringArray( "Control2" )
+current_tab = 0
+
+[sub_resource type="Resource" id=10]
+resource_name = "Split"
+script = ExtResource( 4 )
+direction = 1
+percent = 0.5
+first = SubResource( 9 )
+second = SubResource( 5 )
+
+[sub_resource type="Resource" id=6]
+resource_name = "Split"
+script = ExtResource( 4 )
+direction = 0
+percent = 0.607735
+first = SubResource( 4 )
+second = SubResource( 10 )
+
+[sub_resource type="Resource" id=7]
+resource_name = "Split"
+script = ExtResource( 4 )
+direction = 0
+percent = 0.5
+first = SubResource( 3 )
+second = SubResource( 6 )
+
+[sub_resource type="Resource" id=8]
+resource_name = "Layout"
+script = ExtResource( 2 )
+root = SubResource( 7 )
+hidden_tabs = {
+}
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="DockableContainer" type="Container" parent="."]
+margin_top = 1.0
+margin_right = 1022.0
+margin_bottom = 604.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+layout = SubResource( 8 )
+
+[node name="Label" type="Label" parent="DockableContainer"]
+margin_left = 640.0
+margin_top = 32.0
+margin_right = 1018.0
+margin_bottom = 291.5
+text = "Use this \"AddOns\", we can add DockableContainer objects,
+ and add some controls. 
+After that, we can use DockableContainer's layout property."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control1" type="Control" parent="DockableContainer"]
+margin_left = 4.0
+margin_top = 32.0
+margin_right = 501.0
+margin_bottom = 291.5
+
+[node name="Control2" type="Control" parent="DockableContainer"]
+margin_left = 640.0
+margin_top = 339.5
+margin_right = 1018.0
+margin_bottom = 599.0
+
+[node name="Control3" type="Control" parent="DockableContainer"]
+margin_left = 521.0
+margin_top = 32.0
+margin_right = 620.0
+margin_bottom = 599.0
+
+[node name="Control4" type="Control" parent="DockableContainer"]
+margin_left = 4.0
+margin_top = 339.5
+margin_right = 501.0
+margin_bottom = 599.0
